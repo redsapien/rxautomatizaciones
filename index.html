@@ -112,65 +112,39 @@
             display: none;
         }
 
-        /* ===== BOTÓN DE LLAMADA ===== */
+        /* ===== BOTÓN DE LLAMADA FLOTANTE (ÚNICO) ===== */
         .call-button-nav {
             position: fixed;
-            bottom: 100px;
+            bottom: 30px;
             right: 25px;
-            background: linear-gradient(135deg, #1E293B, #0F172A);
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 15px 30px;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
             z-index: 999;
-            transition: all 0.2s;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: pulse-call 2.5s infinite;
         }
 
         .call-button-nav:hover {
-            background: linear-gradient(135deg, #2D3A5E, #1E293B);
-            border-color: rgba(59, 130, 246, 0.6);
-        }
-
-        /* ===== WHATSAPP FLOTANTE ===== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border-radius: 60px;
-            width: 65px;
-            height: 65px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
-            z-index: 999;
-            font-size: 32px;
-            text-decoration: none;
-            transition: all 0.2s;
-            animation: pulse 2.5s infinite;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .whatsapp-float:hover {
             transform: scale(1.08);
-            background: linear-gradient(135deg, #128C7E, #0E6B5C);
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            border-color: rgba(255,255,255,0.4);
             animation: none;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        @keyframes pulse-call {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
         }
 
         /* ===== HERO ===== */
@@ -271,23 +245,30 @@
             .hero { padding: 5rem 5% 3rem; min-height: auto; }
             .cta-buttons { flex-direction: column; width: 100%; }
             .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-            .call-button-nav { bottom: 85px; right: 15px; padding: 10px 18px; }
-            .whatsapp-float { width: 55px; height: 55px; font-size: 28px; }
+            .call-button-nav { 
+                bottom: 20px; 
+                right: 15px; 
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
             html { scroll-padding-top: 60px; }
         }
 
         @media (max-width: 480px) {
-            .call-button-nav span { display: none; }
+            .call-button-nav span { 
+                display: none; 
+            }
             .call-button-nav {
                 padding: 0;
-                width: 50px;
-                height: 50px;
+                width: 60px;
+                height: 60px;
                 justify-content: center;
                 border-radius: 50%;
-                font-size: 1.3rem;
-                background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+                font-size: 1.8rem;
             }
-            .call-button-nav::before { content: "📞"; }
+            .call-button-nav::before {
+                content: "📞";
+            }
             .logo { font-size: 1.4rem; }
         }
     </style>
@@ -302,7 +283,7 @@
             <a href="#tecnologia">Tecnología</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#clientes">Clientes</a>
-            <a href="https://wa.me/584228655862?text=Soporte%20RX%20Operaciones" target="_blank" class="btn-menu">Soporte</a> 
+            <a href="tel:+584228655862" class="btn-menu">Llamar ahora</a> 
         </nav>
     </header>
 
@@ -313,8 +294,8 @@
         <p>Simplificamos la gestión diaria de tu negocio conectando sistemas y automatizando tareas. Desarrollado por Rifaxx.co.</p>
         
         <div class="cta-buttons">
-            <a href="https://wa.me/584228655862?text=Agendar%20reunión%20RX" target="_blank" class="btn-primary">Agendar reunión</a>
-            <a href="https://wa.me/584228655862?text=Información%20RX" target="_blank" class="btn-secondary">Más información</a>
+            <a href="tel:+584228655862" class="btn-primary">Llamar y agendar</a>
+            <a href="tel:+584228655862" class="btn-secondary">Llamar para información</a>
         </div>
     </section>
 
@@ -329,7 +310,7 @@
                 <p style="font-size: 1.1rem; color: #4B5563; margin-bottom: 2rem;">
                     Usamos <strong>n8n</strong> para automatizar flujos de trabajo, servidores SMTP propios para comunicaciones confiables y APIs seguras para integración con tus sistemas. Tus datos siempre protegidos.
                 </p>
-                <a href="https://wa.me/584228655862?text=Detalles%20técnicos%20RX" target="_blank" class="btn-primary" style="display: inline-block;">Ver detalles técnicos</a>
+                <a href="tel:+584228655862" class="btn-primary" style="display: inline-block;">Llamar para detalles técnicos</a>
             </div>
 
             <!-- ESPACIO PARA TU IMAGEN DEL PANEL DE CONTROL -->
@@ -338,10 +319,7 @@
                     <div style="padding: 4px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 20px;">
                         <div style="background: #0F172A; border-radius: 18px; padding: 40px 20px; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                             <!-- 👇 REEMPLAZA ESTE CÓDIGO CON TU IMAGEN -->
-                            <!-- Opción 1: Si usas imagen -->
                             <img src="Imagenes/Infraes.png" alt="Dashboard RX Operaciones" style="width: 100%; max-width: 280px; border-radius: 12px; margin-bottom: 15px;">
-                            <!-- Opción 2: Si prefieres mantener el ícono temporalmente, deja esto:
-                            <span style="font-size: 3rem; margin-bottom: 15px;">📊</span> -->
                             
                             <h3 style="font-weight: 600; color: white; margin-bottom: 8px;">Panel de control</h3>
                             <p style="color: #9CA3AF; font-size: 0.9rem;">Todo en un solo lugar</p>
@@ -365,19 +343,16 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 24px;">
-                    <!-- ESPACIO PARA ICONO AUTOMATIZACIÓN -->
                     <div style="color: #3B82F6; font-size: 2.2rem; margin-bottom: 20px;">⚙️</div>
                     <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 12px;">Automatización n8n</h3>
                     <p style="color: #9CA3AF;">Flujos personalizados que conectan tus apps y ahorran tiempo.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 24px;">
-                    <!-- ESPACIO PARA ICONO CORREO -->
                     <div style="color: #8B5CF6; font-size: 2.2rem; margin-bottom: 20px;">📨</div>
                     <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 12px;">Servidores SMTP propios</h3>
                     <p style="color: #9CA3AF;">Email confiable sin depender de terceros.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 24px;">
-                    <!-- ESPACIO PARA ICONO SEGURIDAD -->
                     <div style="color: #10B981; font-size: 2.2rem; margin-bottom: 20px;">🔐</div>
                     <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 12px;">APIs seguras</h3>
                     <p style="color: #9CA3AF;">Cifrado AES-256 y SSL para integraciones protegidas.</p>
@@ -395,7 +370,7 @@
             <p style="font-size: 1.2rem; color: #4B5563; margin-bottom: 2rem;">
                 Ingenieros venezolanos con +3 años automatizando procesos para empresas. Creamos soluciones eficientes con soporte cercano y transparente.
             </p>
-            <a href="https://wa.me/584228655862?text=Hablar%20con%20equipo%20RX" target="_blank" class="btn-primary">Hablar con el equipo</a>
+            <a href="tel:+584228655862" class="btn-primary">Llamar y hablar con el equipo</a>
         </div>
     </section>
 
@@ -410,15 +385,10 @@
             </p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <!-- TESTIMONIO 1 - ESPACIO PARA FOTO YANITZA -->
+                <!-- TESTIMONIO 1 - FOTO YANITZA -->
                 <div style="background: white; padding: 30px; border-radius: 20px; text-align: left;">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <!-- 👇 REEMPLAZA ESTE CUADRADO CON LA FOTO DE YANITZA -->
-                        <!-- Opción con imagen: -->
                         <img src="Imagenes/yanitzasifontes.png" alt="Yanitza Sifontes" style="width: 55px; height: 55px; border-radius: 12px; object-fit: cover;">
-                        <!-- Opción temporal: 
-                        <div style="width: 55px; height: 55px; border-radius: 12px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">CM</div> -->
-                        
                         <div>
                             <p style="font-weight: 700;">Yanitza Sifontes</p>
                             <p style="color: #6B7280; font-size: 0.85rem;">Jefe de Servicios</p>
@@ -427,12 +397,10 @@
                     <p style="color: #4B5563;">"Automatizamos tareas manuales que nos tomaban horas. El equipo entendió perfectamente lo que necesitábamos."</p>
                 </div>
 
-                <!-- TESTIMONIO 2 - ESPACIO PARA FOTO OSCAR -->
+                <!-- TESTIMONIO 2 - FOTO OSCAR -->
                 <div style="background: white; padding: 30px; border-radius: 20px; text-align: left;">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <!-- 👇 REEMPLAZA CON FOTO DE OSCAR -->
                         <img src="Imagenes/oscar-garces.jpeg" alt="Oscar Garcés" style="width: 55px; height: 55px; border-radius: 12px; object-fit: cover;">
-                        
                         <div>
                             <p style="font-weight: 700;">Oscar Garcés</p>
                             <p style="color: #6B7280; font-size: 0.85rem;">Gerente de Proyectos</p>
@@ -441,12 +409,10 @@
                     <p style="color: #4B5563;">"Tres años trabajando juntos. La confianza es total y las soluciones funcionan perfectamente."</p>
                 </div>
 
-                <!-- TESTIMONIO 3 - ESPACIO PARA FOTO MANUEL -->
+                <!-- TESTIMONIO 3 - FOTO MANUEL -->
                 <div style="background: white; padding: 30px; border-radius: 20px; text-align: left;">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <!-- 👇 REEMPLAZA CON FOTO DE MANUEL -->
                         <img src="Imagenes/Manuel Marín.jpeg" alt="Manuel Marín" style="width: 55px; height: 55px; border-radius: 12px; object-fit: cover;">
-                        
                         <div>
                             <p style="font-weight: 700;">Manuel Marín</p>
                             <p style="color: #6B7280; font-size: 0.85rem;">Consultor Técnico</p>
@@ -471,19 +437,16 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
-                    <!-- ESPACIO ICONO -->
                     <div style="color: #3B82F6; font-size: 2rem; margin-bottom: 15px;">⏱️</div>
                     <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 8px;">99.9% disponibilidad</h3>
                     <p style="color: #9CA3AF;">Monitoreo 24/7 e infraestructura redundante.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
-                    <!-- ESPACIO ICONO -->
                     <div style="color: #8B5CF6; font-size: 2rem; margin-bottom: 15px;">🔒</div>
                     <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 8px;">Estándares ISO</h3>
                     <p style="color: #9CA3AF;">Protocolos internacionales de seguridad.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
-                    <!-- ESPACIO ICONO -->
                     <div style="color: #10B981; font-size: 2rem; margin-bottom: 15px;">⚡</div>
                     <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 8px;">Baja latencia</h3>
                     <p style="color: #9CA3AF;">Respuestas rápidas sin importar el volumen.</p>
@@ -505,8 +468,8 @@
             </div>
             <div>
                 <h4 style="color: white; font-weight: 600; margin-bottom: 18px;">Contacto</h4>
-                <p><a href="https://wa.me/584228655862" target="_blank" style="color: #60A5FA; text-decoration: none;">+58 422-8655862</a></p>
-                <p style="font-size: 0.9rem;"> rxoperaciones@rifaxx.co</p>
+                <p><a href="tel:+584228655862" style="color: #60A5FA; text-decoration: none;">+58 422-8655862</a></p>
+                <p style="font-size: 0.9rem;">rxoperaciones@rifaxx.co</p>
                 <p style="font-size: 0.85rem; margin-top: 12px;">Ciudad Guayana, Venezuela</p>
             </div>
         </div>
@@ -515,13 +478,9 @@
         </div>
     </footer>
 
-    <!-- BOTONES FLOTANTES -->
+    <!-- BOTÓN FLOTANTE ÚNICO (LLAMADA) -->
     <a href="tel:+584228655862" class="call-button-nav">
-        <span class="text">📞 Llamar</span>
-    </a>
-
-    <a href="https://wa.me/584228655862?text=Soporte%20RX%20Operaciones" class="whatsapp-float" target="_blank">
-        💬
+        <span class="text">📞 Llamar ahora</span>
     </a>
 
     <script>
