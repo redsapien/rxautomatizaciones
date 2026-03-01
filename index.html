@@ -159,6 +159,36 @@
             background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
         }
         
+        /* ===== ESTILO ÚNICO Y DESTACADO PARA RIFAXX (AHORA PRIMER ELEMENTO) ===== */
+        .hero .rifaxx-highlight {
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            font-weight: 600;
+            max-width: 950px;
+            margin: 0 auto 2rem;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border-radius: 80px;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            color: #F0F9FF;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-left: 3px solid #8B5CF6;
+            border-right: 3px solid #3B82F6;
+        }
+        
+        .hero .rifaxx-highlight strong {
+            background: linear-gradient(135deg, #60A5FA, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 1.3em;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
+        }
+        
         .badge {
             background: rgba(255,255,255,0.03);
             padding: 8px 22px;
@@ -183,21 +213,6 @@
             background: linear-gradient(135deg, #3B82F6, #8B5CF6);
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent;
-        }
-
-        /* Nuevo estilo para el significado de RIFAXX */
-        .hero .rifaxx-meaning {
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-            color: #94A3B8;
-            max-width: 800px;
-            margin: 0 auto 1.8rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255,255,255,0.02);
-            border-radius: 60px;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            backdrop-filter: blur(5px);
-            display: inline-block;
-            letter-spacing: 0.3px;
         }
         
         .hero p {
@@ -267,6 +282,11 @@
                 font-size: 0.95rem;
             }
             html { scroll-padding-top: 60px; }
+            .hero .rifaxx-highlight {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -285,6 +305,15 @@
                 content: "📞";
             }
             .logo { font-size: 1.4rem; }
+            .hero .rifaxx-highlight {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                border-left: 2px solid #8B5CF6;
+                border-right: 2px solid #3B82F6;
+            }
+            .hero .rifaxx-highlight strong {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -302,15 +331,15 @@
         </nav>
     </header>
 
-    <!-- HERO - MODIFICADO CON SIGNIFICADO DE RIFAXX -->
+    <!-- HERO - CON RIFAXX COMO PRIMER ELEMENTO DESTACADO -->
     <section class="hero">
+        <!-- RIFAXX AHORA ES EL PRIMER ELEMENTO, ARRIBA DE TODO -->
+        <div class="rifaxx-highlight">
+            <strong>RIFAXX</strong> · Red de Integración y Facilitación de Automatizaciones eXpertas
+        </div>
+        
         <div class="badge">Automatización de procesos B2B</div>
         <h1>Automatizamos tus operaciones para que <span>trabajes de forma más inteligente</span></h1>
-        
-        <!-- SIGNIFICADO DE RIFAXX AÑADIDO AQUÍ -->
-        <div class="rifaxx-meaning">
-            <strong style="color: #60A5FA;">RIFAXX</strong> · Red de Integración y Facilitación de Automatizaciones eXpertas
-        </div>
         
         <p>Simplificamos la gestión diaria de tu negocio conectando sistemas y automatizando tareas. Desarrollado por Rifaxx.co.</p>
         
